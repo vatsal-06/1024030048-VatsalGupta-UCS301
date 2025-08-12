@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-const int MAX_SIZE = 100;
+const int MAX = 100;
 
 void printArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
@@ -30,12 +30,7 @@ int binarySearch(int arr[], int size, int target) {
     return -1;
 }
 
-void insertElement(int arr[], int& size, int value) {
-    if (size >= MAX_SIZE) {
-        cout << "Cannot insert element. Array is full." << endl;
-        return;
-    }
-
+void insertElement(int arr[], int size, int value) {
     int i = size - 1;
     while (i >= 0 && arr[i] > value) {
         arr[i + 1] = arr[i];
@@ -46,11 +41,8 @@ void insertElement(int arr[], int& size, int value) {
 }
 
 int main() {
-    int arr[MAX_SIZE] = {1, 2, 3, 5, 6, 7};
+    int arr[MAX] = {1, 2, 3, 5, 6, 7};
     int size = 6;
-
-    cout << "Original array: ";
-    printArray(arr, size);
 
     int target = 4;
     cout << "\nInserting " << target << " into the array." << endl;
@@ -61,8 +53,4 @@ int main() {
 
     cout << "\nSearching for " << target << " in the new array." << endl;
     binarySearch(arr, size, target);
-
-    int target2 = 8;
-    cout << "\nSearching for " << target2 << " in the new array." << endl;
-    binarySearch(arr, size, target2);
 }
